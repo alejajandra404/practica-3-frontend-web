@@ -16,8 +16,21 @@ export interface PrestamoResponseDto {
   ejemplares: number[];
   socioId: string;
   estado: EstadoPrestamo;
-  creadoEn: string; 
+  creadoEn: string;
 }
+
+export interface ErrorResponseDto {
+  error: string;
+  mensaje: string;
+  detalles?: string[];
+}
+
+export interface CrearPrestamoRequestDto {
+  libroId: string;
+  socioId: string;
+  ejemplares: number[];
+}
+
 export function aResponseDto(p: Prestamo): PrestamoResponseDto {
   return {
     folio: p.folio,
@@ -27,4 +40,5 @@ export function aResponseDto(p: Prestamo): PrestamoResponseDto {
     estado: p.estado,
     creadoEn: p.creadoEn.toISOString(),
   };
+
 }
